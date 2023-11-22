@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roulette</title>
+  </head>
+  <style>
+    body {
+      height: 100svh;
+      box-sizing: border-box;
+      padding: 24px;
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      height: 100%;
+    }
+
+    #color {
+      width: 100px;
+      height: 30px;
+
+      &.red {
+        background-color: red;
+      }
+
+      &.black {
+        background-color: black;
+      }
+    }
+
+    #number {
+      flex-grow: 1;
+    }
+
+    #go {
+      height: 30px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div id="color"></div>
+      <div id="part"></div>
+      <div id="number"></div>
+      <button id="go">Goooo</button>
+    </div>
+    <script>
+      const parts = ['1 to 12', '13 to 24', '25 to 36'];
+      const color = document.getElementById('color');
+      const part = document.getElementById('part');
+      const number = document.getElementById('number');
+
+      const goButton = document.getElementById('go');
+      goButton.addEventListener('click', go);
+
+      function go() {
+        color.classList = [];
+        color.className = Math.round(Math.random()) ? 'red' : 'black';
+        part.innerText = parts[Math.floor(Math.random() * 3)];
+        number.innerText = Math.round(Math.random()) ? 'Odd' : 'Even';
+      }
+    </script>
+  </body>
+</html>
