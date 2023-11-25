@@ -11,6 +11,7 @@
       box-sizing: border-box;
       padding: 24px;
       margin: 0;
+      font-size: 24px;
     }
 
     .container {
@@ -38,7 +39,8 @@
     }
 
     #go {
-      height: 30px;
+      height: 50px;
+      touch-action: manipulation;
     }
   </style>
   <body>
@@ -46,22 +48,26 @@
       <div id="color"></div>
       <div id="part"></div>
       <div id="number"></div>
+      <div id="bets"></div>
       <button id="go">Goooo</button>
     </div>
     <script>
-      const parts = ['1 to 12', '13 to 24', '25 to 36'];
-      const color = document.getElementById('color');
-      const part = document.getElementById('part');
-      const number = document.getElementById('number');
+      const parts = ["1 to 12", "13 to 24", "25 to 36"];
+      let betsCount = 0;
+      const color = document.getElementById("color");
+      const part = document.getElementById("part");
+      const number = document.getElementById("number");
+      const bets = document.getElementById("bets");
 
-      const goButton = document.getElementById('go');
-      goButton.addEventListener('click', go);
+      const goButton = document.getElementById("go");
+      goButton.addEventListener("click", go);
 
       function go() {
         color.classList = [];
-        color.className = Math.round(Math.random()) ? 'red' : 'black';
+        color.className = Math.round(Math.random()) ? "red" : "black";
         part.innerText = parts[Math.floor(Math.random() * 3)];
-        number.innerText = Math.round(Math.random()) ? 'Odd' : 'Even';
+        number.innerText = Math.round(Math.random()) ? "Odd" : "Even";
+        bets.innerHTML = `bets: ${++betsCount}`;
       }
     </script>
   </body>
