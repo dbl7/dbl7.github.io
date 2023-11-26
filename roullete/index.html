@@ -47,6 +47,7 @@
     <div class="container">
       <div id="color"></div>
       <div id="part"></div>
+      <div id="odd-or-event"></div>
       <div id="number"></div>
       <div id="bets"></div>
       <button id="go">Goooo</button>
@@ -56,6 +57,7 @@
       let betsCount = 0;
       const color = document.getElementById("color");
       const part = document.getElementById("part");
+      const oddOrEvent = document.getElementById("odd-or-event");
       const number = document.getElementById("number");
       const bets = document.getElementById("bets");
 
@@ -66,7 +68,8 @@
         color.classList = [];
         color.className = Math.round(Math.random()) ? "red" : "black";
         part.innerText = parts[Math.floor(Math.random() * 3)];
-        number.innerText = Math.round(Math.random()) ? "Odd" : "Even";
+        oddOrEvent.innerText = Math.round(Math.random()) ? "Odd" : "Even";
+        number.innerHTML = Math.floor(Math.random() * 37);
         bets.innerHTML = `bets: ${++betsCount}`;
       }
     </script>
